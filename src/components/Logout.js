@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
 import {setAuthedUser} from '../actions/authedUser';
 import { connect } from 'react-redux'
-
+import { createBrowserHistory } from 'history'
 class Logout extends Component {
-
+  
   onlogoutClicked = (e) => {
-
+    const history = createBrowserHistory()
+    history.push('/');
      this.props.dispatch(setAuthedUser(null));
          
   };

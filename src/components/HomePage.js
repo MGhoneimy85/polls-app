@@ -4,7 +4,9 @@ import { BrowserRouter as Router, Route } from 'react-router-dom'
 
 
 import Logout from './Logout';
+import Add from './add';
 import Navigation from './Navigation';
+import LeaderBoard from './LeaderBoard';
 
 class HomePage extends Component {
 
@@ -19,7 +21,10 @@ class HomePage extends Component {
        		<Logout/>
        </div>
         <div className='body-section center'>
-          Body Section
+            <h3> body section</h3>
+            <Route path='/add' exact component={Add} />
+            <Route path='/leaderboard' exact component={LeaderBoard} />
+            
         </div>
         </div>
       
