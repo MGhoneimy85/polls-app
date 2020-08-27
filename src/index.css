@@ -31,7 +31,9 @@ body {
 }
 .top-section{
   width:100%;
-  display:inline-block;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 .logout-view{
 	float:right;
@@ -48,6 +50,7 @@ body {
   flex-direction: row;
   justify-content: flex-start;
   text-decoration: none;
+  margin:0;
 }
 
 .nav li:first-child {
@@ -65,4 +68,9 @@ li {
   list-style-type: none;
   padding: 10px;
   text-decoration: none;
+}
+.loggedinUserImage{
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
 }

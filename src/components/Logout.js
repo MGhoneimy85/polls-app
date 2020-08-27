@@ -2,18 +2,25 @@ import React, { Component } from 'react'
 import {setAuthedUser} from '../actions/authedUser';
 import { connect } from 'react-redux'
 import { createBrowserHistory } from 'history'
+
 class Logout extends Component {
   
+  // state = {
+  //   authedUser: this.props.dispatch.authedUser
+  // }
   onlogoutClicked = (e) => {
     const history = createBrowserHistory()
     history.push('/');
      this.props.dispatch(setAuthedUser(null));
          
   };
-
+    
   render() {
+  
     return (
       <div className="logout-view">
+      <img src={ this.props.users[this.props.authedUser].avatarURL }  className="loggedinUserImage" />
+      <span> {this.props.authedUser}</span>
 		<button type="button" onClick={(e) => this.onlogoutClicked(e)}  >Logout</button>
       </div>
     )
@@ -21,8 +28,7 @@ class Logout extends Component {
 }
 
 function mapDispatchToProps(dispatch) {
-
-  return { dispatch };
+  return { dispatch:dispatch , authedUser:dispatch.authedUser , users:dispatch.users};
 }
 
 
