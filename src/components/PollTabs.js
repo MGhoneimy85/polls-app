@@ -16,25 +16,29 @@ class PollTabs extends Component {
             <Tab>Answerd Polls</Tab>
           </TabList>
           <TabPanel>
+          <div className="PollItem-view">
             {
               Object.values(this.props.questions)
-              .filter(question =>  this.props.users[this.props.authedUser].questions.includes(question.id))
+              .filter(question =>  !this.props.users[this.props.authedUser].questions.includes(question.id))
               .sort((a, b) => b.timestamp - a.timestamp).map((question) => {
               return <PollItem question={question} author={this.props.users[question.author]} key={question.id}  answerd={false} />
             })
 
           }
+          </div>
            
           </TabPanel>     
           <TabPanel>
+          <div className="PollItem-view">
             {
               Object.values(this.props.questions)
-              .filter(question =>  !this.props.users[this.props.authedUser].questions.includes(question.id))
+              .filter(question =>  this.props.users[this.props.authedUser].questions.includes(question.id))
               .sort((a, b) => b.timestamp - a.timestamp).map((question) => {
               return <PollItem question={question} author={this.props.users[question.author]} key={question.id} answerd={true} />
             })
 
           }
+          </div>
           </TabPanel>
         </Tabs>
       </div>

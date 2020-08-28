@@ -8,7 +8,7 @@ class Add extends Component {
   render() {
     return (
       <div className="add-view">
-		add new Question 
+		      New Poll 
       </div>
     )
   }

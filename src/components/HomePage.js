@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
-
+import {Redirect} from 'react-router-dom';
 
 
 import Logout from './Logout';
@@ -14,15 +14,18 @@ class HomePage extends Component {
 
 
   render() {
+    
     return (
+      
       <Router>
         <Fragment><div className="homepage-view">
+        <Redirect to="/home" />
        	<div className='top-section'>
       		<Navigation/>
        		<Logout/>
        </div>
         <div className='body-section center'>
-            <Route path='/' exact component={PollTabs} />
+            <Route path='/home' exact component={PollTabs} />
             <Route path='/add' exact component={Add} />
             <Route path='/leaderboard' exact component={LeaderBoard} />
             
@@ -33,7 +36,7 @@ class HomePage extends Component {
         </Fragment>
       </Router>
       
-    )
+    );
   }
 }
 

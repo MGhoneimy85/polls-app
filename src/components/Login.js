@@ -25,7 +25,7 @@ class Login extends Component {
   onSubmit = (e) => {
    	e.preventDefault();
      
-    if(this.state.authenticatedUser === ''){
+    if(this.state.authenticatedUser === '' || this.state.authenticatedUser === 'select user'){
       alert('please select user first'); // validation TODO: to be updated to vallidation message under for better UX
     } else {
       this.props.dispatch(setAuthedUser(this.state.authenticatedUser));

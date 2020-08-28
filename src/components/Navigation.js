@@ -6,13 +6,13 @@ export default function Navigation () {
     <nav className='nav'>
       <ul>
         <li>
-          <NavLink to='/' exact activeClassName='active'>
+          <NavLink to='/home' exact activeClassName='active'>
             Home
           </NavLink>
         </li>
         <li>
           <NavLink to='/add' activeClassName='active'>
-            New Question
+            New Poll
           </NavLink>
         </li>
             <li>
