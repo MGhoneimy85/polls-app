@@ -1,14 +1,11 @@
 import React, { Component } from 'react'
-import {setAuthedUser} from '../actions/authedUser';
+
 import { connect } from 'react-redux'
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
-import { receiveQuestions } from '../actions/questions'
+import PollItem from './PollItem';
 import 'react-tabs/style/react-tabs.css';
 class PollTabs extends Component {
 
-  componentDidMount() {
-    this.props.dispatch(receiveQuestions())
-  }
 
   render() {
     return (
@@ -19,16 +16,25 @@ class PollTabs extends Component {
             <Tab>Answerd Polls</Tab>
           </TabList>
           <TabPanel>
-            <h2>Any content 1</h2>
             {
-                  Object.keys(this.props.questions).map((question) => {
-                    if(this.props.questions[question].optionOne.votes.length > 0 && this.props.questions[question].optionOne.votes.length > 0 )
-                    return <div key={this.props.questions[question].id} >{this.props.questions[question].author}</div>
-                })
-                }
-          </TabPanel>
+              Object.values(this.props.questions)
+              .filter(question =>  this.props.users[this.props.authedUser].questions.includes(question.id))
+              .sort((a, b) => b.timestamp - a.timestamp).map((question) => {
+              return <PollItem question={question} author={this.props.users[question.author]} key={question.id}  answerd={false} />
+            })
+
+          }
+           
+          </TabPanel>     
           <TabPanel>
-            <h2>Any content 2</h2>
+            {
+              Object.values(this.props.questions)
+              .filter(question =>  !this.props.users[this.props.authedUser].questions.includes(question.id))
+              .sort((a, b) => b.timestamp - a.timestamp).map((question) => {
+              return <PollItem question={question} author={this.props.users[question.author]} key={question.id} answerd={true} />
+            })
+
+          }
           </TabPanel>
         </Tabs>
       </div>
@@ -36,12 +42,12 @@ class PollTabs extends Component {
   }
 }
 
-function mapStateToProps ({ questions,setAuthedUser}) {
-  return {
-    questions: questions,
-    authedUser:setAuthedUser
-  }
+function mapDispatchToProps(dispatch) {
+  return { dispatch:dispatch , 
+            authedUser:dispatch.authedUser,
+            users:dispatch.users,
+            questions:dispatch.questions
+          }
 }
 
-
-export default connect(mapStateToProps)(PollTabs)
+export default connect(mapDispatchToProps)(PollTabs)

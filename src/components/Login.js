@@ -26,12 +26,9 @@ class Login extends Component {
    	e.preventDefault();
      
     if(this.state.authenticatedUser === ''){
-      alert('please select user first');
-
+      alert('please select user first'); // validation TODO: to be updated to vallidation message under for better UX
     } else {
       this.props.dispatch(setAuthedUser(this.state.authenticatedUser));
-       console.log(e.target);
-	//history.push('/home')
     }
    
   };

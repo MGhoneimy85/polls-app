@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
-import {setAuthedUser} from '../actions/authedUser';
-import { connect } from 'react-redux'
+
 
 class Add extends Component {
 

@@ -8,14 +8,14 @@ class App extends Component {
   render() {
     return (
           <div className='container'>
-            {this.props.loading === true ? <Login /> : <HomePage />}
+            {this.props.authenticated === true ? <Login /> : <HomePage />}
           </div>
     )
   }
 }
 function mapStateToProps ({ authedUser }) {
   return {
-    loading: authedUser === null
+    authenticated: authedUser === null
   }
 }
 

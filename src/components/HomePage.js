@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom'
 
 
 import Logout from './Logout';
-import Add from './add';
+import Add from './Add';
 import Navigation from './Navigation';
 import LeaderBoard from './LeaderBoard';
 import PollTabs from './PollTabs';
