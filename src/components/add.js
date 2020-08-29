@@ -10,7 +10,7 @@ class Add extends Component {
     value2: '',
     success:false
   }
-  
+
   handlevalue1Change = (e) => {
     const text = e.target.value;
 
@@ -52,14 +52,14 @@ class Add extends Component {
         <h3 className='center'>Compose new Poll</h3>
         <div className="question-div"> Whould you Rather ? </div>
         <form onSubmit={this.handleSubmit}>
-          <div className="form-container">
+          <div className="">
             <div className="">
               <span>value one</span><br />
               <input placeholder='Enter first value' value={value1} onChange={this.handlevalue1Change} />
             </div>
             <div className="or">
               OR
-          </div>
+            </div>
             <div className="">
               <span>value two</span><br />
               <input placeholder='Enter second value' value={value2} onChange={this.handlevalue2Change} />

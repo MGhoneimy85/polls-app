@@ -22,15 +22,15 @@ export function handleInitialData () {
   }
 }
 
-export function handleAddQuestionAnswer (questionId,author, selectedOption) {
+export function handleAddQuestionAnswer (authedUser,questionId, selectedOption) {
   return (dispatch) => {
       saveQuestionAnswer({
-        author,
+          authedUser : authedUser ,
           qid: questionId,
           answer: selectedOption
       }).then(() => {
-          dispatch(addQuestionAnswer(author, questionId, selectedOption));
-          dispatch(addUserQuestionAnswer(author, questionId, selectedOption));
+          dispatch(addQuestionAnswer(authedUser, questionId, selectedOption));
+          dispatch(addUserQuestionAnswer(authedUser, questionId, selectedOption));
       });
   }
 }

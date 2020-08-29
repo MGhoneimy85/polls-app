@@ -7,6 +7,10 @@ class PollItem extends Component {
     this.props.history.push('/PollDetails');
   }
 
+  handleVoteClick = () => {
+    this.props.history.push('/PollSaveAnswer');
+  }
+
   render() {
     const { question, author, answerd } = this.props
     if (answerd) {
@@ -21,12 +25,13 @@ class PollItem extends Component {
       )
     } else {
       return (
-          <div className="unansweredpoll-item">
+        <Link to={`/PollSaveAnswer/${question.id}`} className='unansweredpoll-item'>
             <div><img src={author.avatarURL} alt={author.name} className="authorImage" /></div>
             <div>   {question.author} asks :</div>
             <div >Whould you rather ?</div>
             <div >{question.optionOne.text} <b>OR</b>  {question.optionTwo.text} </div>
-          </div>
+            <div ><button type="button" onClick={this.handleVoteClick} > Go Vote </button></div>
+        </Link>
       )
     }
 
