@@ -105,14 +105,13 @@ li {
   flex-wrap: wrap;
   justify-content: space-evenly;
 }
-.PollItem-view > div{
-  flex-basis: 20%;
-}
+
 .unansweredpoll-item{
   margin:20px;
   padding:10px;
   border:3px orange solid;
   border-radius: 10px;
+  flex-basis: 20%;
 }
 
 
@@ -121,6 +120,7 @@ li {
   padding:10px;
   border:3px green solid;
   border-radius: 10px;
+  flex-basis: 20%;
 }
 
 .authorImage{
@@ -147,4 +147,8 @@ li {
   margin:20px;
   padding:20px;
   background-color: #ccc;
+}
+
+span.active {
+  color:red;
 }

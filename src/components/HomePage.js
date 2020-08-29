@@ -8,6 +8,7 @@ import Add from './Add';
 import Navigation from './Navigation';
 import LeaderBoard from './LeaderBoard';
 import PollTabs from './PollTabs';
+import PollDetails from './PollDetails';
 
 
 class HomePage extends Component {
@@ -28,6 +29,7 @@ class HomePage extends Component {
             <Route path='/home' exact component={PollTabs} />
             <Route path='/add' exact component={Add} />
             <Route path='/leaderboard' exact component={LeaderBoard} />
+            <Route path='/PollDetails/:id' exact component={PollDetails} />
             
         </div>
         </div>
