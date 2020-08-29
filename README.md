@@ -63,5 +63,4 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 
 ### `npm run deploy`
 
-
-this svcript to deploy your site to github-pages pages
+this script to deploy your site to github-pages pages

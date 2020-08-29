@@ -9,8 +9,7 @@ class Logout extends Component {
   //   authedUser: this.props.dispatch.authedUser
   // }
   onlogoutClicked = (e) => {
-    const history = createBrowserHistory()
-    history.push('/');
+    createBrowserHistory().push('/');
     this.props.dispatch(setAuthedUser(null));
 
   };

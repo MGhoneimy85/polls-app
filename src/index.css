@@ -12,7 +12,7 @@ body {
 .login-view{
 	width:400px;
   margin:50px auto;
-  border:5px red solid;
+  border:5px rebeccapurple solid;
   border-radius:10px;
   padding:20px
 }
@@ -102,9 +102,11 @@ li {
 /* poll item  styles */
 .PollItem-view{
   display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
 }
 .PollItem-view > div{
-  flex-basis: 25%;
+  flex-basis: 20%;
 }
 .unansweredpoll-item{
   margin:20px;
@@ -127,4 +129,14 @@ li {
   border-radius: 10px;
   margin:10px;
   border:2px blue solid;
+}
+
+
+/* add new poll styles */
+
+.form-container{
+  display: flex;
+  justify-content: space-evenly;
+  padding: 20px;
+  align-items: center;
 }
