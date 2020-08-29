@@ -48,11 +48,11 @@ handleInputChange = (e) => {
             <div >Whould you rather ?</div>
             <form onSubmit={(e) => this.handleSubmit(e, question.id)} >
             <div>
-              <input type="radio" value="optionOne" onChange={this.handleInputChange} />
+              <input type="radio" name="radioGroup" value="optionOne" onChange={this.handleInputChange} />
               <span > {question.optionOne.text} </span>
               </div>
               <div>
-              <input type="radio" value="optionTwo" onChange={this.handleInputChange} />
+              <input type="radio" name="radioGroup" value="optionTwo" onChange={this.handleInputChange} />
               <span > {question.optionTwo.text} </span>
               </div>
                                                                  
