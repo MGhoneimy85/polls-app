@@ -10,6 +10,7 @@ class Add extends Component {
     value2: '',
     success:false
   }
+  
   handlevalue1Change = (e) => {
     const text = e.target.value;
 

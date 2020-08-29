@@ -8,7 +8,9 @@ class PollTabs extends Component {
 
 
   render() {
+    const answeredIds = Object.keys(this.props.users[this.props.authedUser].answers)
     return (
+      
       <div className="PollTabs-view">
         <Tabs>
           <TabList>
@@ -19,7 +21,7 @@ class PollTabs extends Component {
           <div className="PollItem-view">
             {
               Object.values(this.props.questions)
-              .filter(question =>  !this.props.users[this.props.authedUser].questions.includes(question.id))
+              .filter(question =>  !answeredIds.includes(question.id))
               .sort((a, b) => b.timestamp - a.timestamp).map((question) => {
               return <PollItem question={question} author={this.props.users[question.author]} key={question.id}  answerd={false} />
             })
@@ -32,7 +34,7 @@ class PollTabs extends Component {
           <div className="PollItem-view">
             {
               Object.values(this.props.questions)
-              .filter(question =>  this.props.users[this.props.authedUser].questions.includes(question.id))
+              .filter(question =>  answeredIds.includes(question.id))
               .sort((a, b) => b.timestamp - a.timestamp).map((question) => {
               return <PollItem question={question} author={this.props.users[question.author]} key={question.id} answerd={true} />
             })

@@ -140,3 +140,11 @@ li {
   padding: 20px;
   align-items: center;
 }
+
+.leaderboarditem{
+  border:3px purple solid;
+  border-radius: 10px;
+  margin:20px;
+  padding:20px;
+  background-color: #ccc;
+}
