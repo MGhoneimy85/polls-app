@@ -21,7 +21,6 @@ class HomePage extends Component {
       
       <Router>
         <Fragment><div className="homepage-view">
-        <Redirect to="/home" />
        	<div className='top-section'>
       		<Navigation/>
        		<Logout/>

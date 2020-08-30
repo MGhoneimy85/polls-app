@@ -17,7 +17,7 @@ export default function Navigation () {
         </li>
             <li>
           <NavLink to='/leaderboard' activeClassName='active'>
-            Leader Bboard
+            Leader Board
           </NavLink>
         </li>
       </ul>
