@@ -152,3 +152,15 @@ li {
 span.active {
   color:red;
 }
+
+
+.Page404-view{
+  border:5px red solid;
+  border-radius: 10px;
+  margin:20px;
+  padding:20px;
+}
+
+.Page404-view img{
+  width:100px;
+}

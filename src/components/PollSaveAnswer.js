@@ -37,47 +37,57 @@ handleInputChange = (e) => {
       return <Redirect to='/'/>;
     }
     const {selectedValue} = this.state;
-    const { question , author   } = this.props
-    
+    const { question , author , questionID  } = this.props
+    if(questionID){
       return (
-
-          <div className="answeredpoll-item">
-            <h3>Poll Voting</h3>
-            <div><img src={author.avatarURL} alt={author.name} className="authorImage" /></div>
-            <div>   {question.author} asks :</div>
-            <div >Whould you rather ?</div>
-            <form onSubmit={(e) => this.handleSubmit(e, question.id)} >
+          
+        <div className="answeredpoll-item">
+          <h3>Poll Voting</h3>
+          <div><img src={author.avatarURL} alt={author.name} className="authorImage" /></div>
+          <div>   {question.author} asks :</div>
+          <div >Whould you rather ?</div>
+          <form onSubmit={(e) => this.handleSubmit(e, question.id)} >
+          <div>
+            <input type="radio" name="radioGroup" value="optionOne" onChange={this.handleInputChange} />
+            <span > {question.optionOne.text} </span>
+            </div>
             <div>
-              <input type="radio" name="radioGroup" value="optionOne" onChange={this.handleInputChange} />
-              <span > {question.optionOne.text} </span>
-              </div>
-              <div>
-              <input type="radio" name="radioGroup" value="optionTwo" onChange={this.handleInputChange} />
-              <span > {question.optionTwo.text} </span>
-              </div>
-                                                                 
-            
-
-            
-            <div ><button type="submit" disabled={selectedValue === ''} >Vote</button></div>
-
-            </form>
-           
-          </div>
-      )
+            <input type="radio" name="radioGroup" value="optionTwo" onChange={this.handleInputChange} />
+            <span > {question.optionTwo.text} </span>
+            </div>
+          <div ><button type="submit" disabled={selectedValue === ''} >Vote</button></div>
+          </form>
+        </div>
+    )     
+    } else{
+      return <Redirect to='/page404'/>;
+    }
+      
   }
 }
 
 function mapStateToProps ({ questions , users , authedUser }, props ) {
   const {id} = props.match.params;
-  return {
-    id,
-    questions,
-    users,
-    authedUser, 
-    author:users[questions[id].author],
-    question: questions[id]
+  if( questions[id]){
+    return {
+      id,
+      questions,
+      users,
+      authedUser, 
+      author:users[questions[id].author],
+      question: questions[id],
+      questionID: true
+    }
+  } else{
+    return {
+      id,
+      questions,
+      users,
+      authedUser, 
+      questionID: false
+    }
   }
+  
 }
 
 export default connect(mapStateToProps)(PollSaveAnswer)
