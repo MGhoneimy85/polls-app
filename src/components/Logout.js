@@ -5,9 +5,6 @@ import { createBrowserHistory } from 'history'
 
 class Logout extends Component {
 
-  // state = {
-  //   authedUser: this.props.dispatch.authedUser
-  // }
   onlogoutClicked = (e) => {
     createBrowserHistory().push('/');
     this.props.dispatch(setAuthedUser(null));

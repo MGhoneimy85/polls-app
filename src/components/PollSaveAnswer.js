@@ -34,7 +34,7 @@ handleInputChange = (e) => {
 
   render() {
     if (this.state.success === true) {
-      return <Redirect to='/home'/>;
+      return <Redirect to='/'/>;
     }
     const {selectedValue} = this.state;
     const { question , author   } = this.props

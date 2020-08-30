@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
-import {Redirect} from 'react-router-dom';
+
 
 
 import Logout from './Logout';
@@ -26,7 +26,7 @@ class HomePage extends Component {
        		<Logout/>
        </div>
         <div className='body-section center'>
-            <Route path='/home' exact component={PollTabs} />
+            <Route path='/' exact component={PollTabs} />
             <Route path='/add' exact component={Add} />
             <Route path='/leaderboard' exact component={LeaderBoard} />
             <Route path='/PollDetails/:id' exact component={PollDetails} />

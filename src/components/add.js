@@ -44,7 +44,7 @@ class Add extends Component {
 
   render() {
     if (this.state.success === true) {
-      return <Redirect to='/home'/>;
+      return <Redirect to='/'/>;
     }
     const { value1, value2 } = this.state
     return (
